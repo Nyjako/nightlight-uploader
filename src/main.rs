@@ -1,13 +1,9 @@
-use std::time::Instant;
+use std::{env, io::Cursor, thread, time::{Duration, Instant}};
 use xcap::{image::{ImageBuffer, Rgba}, image, Window};
-use global_hotkey::{GlobalHotKeyEvent, GlobalHotKeyManager, HotKeyState};
-use global_hotkey::hotkey::{HotKey, Code, Modifiers};
-use reqwest::blocking::Client;
-use reqwest::blocking::multipart::{Form, Part};
-use reqwest::header::HeaderMap;
-use std::io::Cursor;
+use global_hotkey::{hotkey::{Code, HotKey, Modifiers}, GlobalHotKeyEvent, GlobalHotKeyManager, HotKeyState};
+use reqwest::{blocking::{multipart::{Form, Part}, Client}, header::HeaderMap};
 use chrono::Local;
-use std::env;
+use serde_json;
 
 const API_KEY: &str = env!("NIGHTLIGHT_API_KEY");
 const API_URL: &str = "https://api.nightlight.gg/v1/upload";
@@ -142,6 +138,9 @@ fn main() {
                 }
             }
         }
+
+        // We can wait a bit
+        thread::sleep( Duration::from_millis(100) );
     }
 
     println!("Elapsed: {:?}", start.elapsed());
