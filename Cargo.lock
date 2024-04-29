@@ -2350,9 +2350,9 @@ dependencies = [
 
 [[package]]
 name = "xcap"
-version = "0.0.8"
+version = "0.0.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "67a93952e626469db74885009cb4a3b9df9a281a03b2f16e3c3a3f0b5d0a408a"
+checksum = "3b76339b2f4195ad7092d88a19819cd99fe15351f0cf82041c42afa8a33efd60"
 dependencies = [
  "core-foundation",
  "core-graphics",
